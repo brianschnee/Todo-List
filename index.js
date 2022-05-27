@@ -1,3 +1,13 @@
+/**
+ * Group Members:
+ * Brian
+ * Dylan
+ * Alan
+ * Antonio
+ * Chavis
+ * Charlie
+ */
+
 document.getElementById('taskSearchButton').addEventListener('click', getTodos);
 
 async function getTodos() {
