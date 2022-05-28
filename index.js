@@ -1,17 +1,12 @@
-/**
- * Group Members:
- * Brian
- * Dylan
- * Alan
- * Antonio
- * Chavis
- * Charlie
- */
-
-document.querySelector('#taskSearchButton').addEventListener('click', getTodos);
+document.addEventListener('DOMContentLoaded', () => {
+	document
+		.querySelector('#taskSearchButton')
+		.addEventListener('click', getTodos);
+});
 
 async function getTodos() {
-	const taskName = document.querySelector('#taskSearch').value;
+	const taskName = document.querySelector('#taskName').value;
+	console.log('Task Name: ', taskName);
 
 	try {
 		const res = await fetch(`/api?todo=${taskName}`);

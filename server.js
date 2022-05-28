@@ -23,11 +23,18 @@ const server = http.createServer((req, res) => {
 				(obj) => obj.title.toLowerCase() === userInput,
 			);
 
+			res.writeHead(200, { 'Content-Type': 'application/json' });
+
 			if (index) {
-				res.writeHead(200, { 'Content-Type': 'application/json' });
 				res.end(JSON.stringify(todo[index]));
+			} else {
+				res.end(
+					JSON.stringify({
+						title: 'No matches',
+						content: 'No tasks match your search',
+					}),
+				);
 			}
-			console.log('end');
 		}
 	} else if (page == '/css/style.css') {
 		fs.readFile('css/style.css', function (err, data) {
