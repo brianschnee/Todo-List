@@ -10,9 +10,9 @@ async function getTodos() {
 
 	try {
 		const res = await fetch(`/api?todo=${taskName}`);
-		console.log(res);
+		console.log('in index.js - response:', res);
 		const data = await res.json();
-		console.log(data);
+		console.log('in index.js - data:', data);
 
 		document.querySelector('#title').textContent = data.title;
 		document.querySelector('#content').textContent = data.content;

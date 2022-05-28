@@ -16,12 +16,15 @@ const server = http.createServer((req, res) => {
 			res.end();
 		});
 	} else if (page === '/api') {
-		console.log('entered');
+		console.log('---- entered ----');
 		if ('todo' in params) {
 			const userInput = params['todo'].toLowerCase();
 			const index = todo.findIndex(
 				(obj) => obj.title.toLowerCase() === userInput,
 			);
+
+			console.log('userInput - ', userInput);
+			console.log('index - ', index);
 
 			res.writeHead(200, { 'Content-Type': 'application/json' });
 
@@ -35,6 +38,8 @@ const server = http.createServer((req, res) => {
 					}),
 				);
 			}
+
+			console.log('---- exiting ----');
 		}
 	} else if (page == '/css/style.css') {
 		fs.readFile('css/style.css', function (err, data) {
