@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 async function getTodos() {
-	const taskName = document.querySelector('#taskName').value;
+	const taskName = document.querySelector('#taskSearch').value;
 	console.log('Task Name: ', taskName);
 
 	try {
