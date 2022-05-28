@@ -16,6 +16,7 @@ const server = http.createServer((req, res) => {
 			res.end();
 		});
 	} else if (page === '/api') {
+		console.log('entered');
 		if ('todo' in params) {
 			const userInput = params['todo'].toLowerCase();
 			const index = todo.findIndex(
@@ -26,6 +27,7 @@ const server = http.createServer((req, res) => {
 				res.writeHead(200, { 'Content-Type': 'application/json' });
 				res.end(JSON.stringify(todo[index]));
 			}
+			console.log('end');
 		}
 	} else if (page == '/css/style.css') {
 		fs.readFile('css/style.css', function (err, data) {
