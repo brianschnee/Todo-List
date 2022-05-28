@@ -8,19 +8,20 @@
  * Charlie
  */
 
-document.getElementById('taskSearchButton').addEventListener('click', getTodos);
+document.querySelector('#taskSearchButton').addEventListener('click', getTodos);
 
 async function getTodos() {
-	const taskName = document.getElementById('taskSearch').value;
+	const taskName = document.querySelector('#taskSearch').value;
 
 	try {
 		const res = await fetch(`/api?todo=${taskName}`);
+		console.log(res);
 		const data = await res.json();
 		console.log(data);
 
-		document.getElementById('title').innerText = data.title;
-		document.getElementById('content').innerText = data.content;
+		document.querySelector('#title').textContent = data.title;
+		document.querySelector('#content').textContent = data.content;
 	} catch (err) {
-		console.log(`err: ${err}`);
+		console.error('err', err);
 	}
 }
